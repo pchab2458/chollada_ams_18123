@@ -1,0 +1,185 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+{% load ams_tags %}
+
+{% block title %}Payment{% endblock %}
+
+{% block script %}
+
+    <link rel="stylesheet" href={% static "js/jquery-ui.css" %}>
+    <script src={% static "js/jquery-3.3.1.js" %}></script>
+    <script src={% static "js/jquery-ui.js" %}></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".pay_date").datepicker(
+                {
+                    showAnim: 'slide',
+                    {#dateFormat: 'D: d-M-yy',#}
+                    {#dateFormat:'dd-mm-yy',#}
+                    {#dateFormat:'mm/dd/yy',#}
+                    changeMonth: true,
+                    changeYear: true,
+                });
+        });
+
+    </script>
+
+{% endblock %}
+
+{% block style %}
+
+    <style>
+        #hx {
+            float: left;
+
+        }
+
+        #dx {
+            clear: both;
+
+        }
+
+
+        #hnam {
+
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #hrn {
+            display: block;
+            width: 3.5em;
+            color: white;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #hbt {
+            display: block;
+            width: 5em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #hrc, #hac, #hec, #hwc, #hcsc, #hosc, #hoth, #hovd {
+            display: block;
+            width: 3.5em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            line-height: 1.5em;
+        }
+
+        .nam {
+            display: block;
+            width: 12em;
+            text-align: left;
+            float: left;
+            line-height: 1.5em;
+            color: #003eff;
+        }
+
+        .rn {
+            display: block;
+            width: 3.5em;
+            text-align: center;
+            color: #de1710;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .rc, .ra, .ec, .wc, .csc, .osc, .oth, .ovd {
+            display: block;
+            width: 3.5em;
+            text-align: right;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .bt {
+            display: block;
+            width: 5em;
+            text-align: center;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .paid_amount, .pay_date {
+            width: 8em;
+            text-align: center;
+            color: red;
+            background-color: lightskyblue;
+            margin-left: .25em;
+            line-height: 1.5em;
+        {#float: left;#}
+        }
+
+
+        .submit button {
+            width: 5em;
+            font-size: large;
+            background-color: red;
+            border-color: red;
+            border-radius: 15px;
+            color: white;
+            margin-top: .5em;
+            padding: .3em;
+        }
+
+        .submit button:hover {
+            color: black;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <h1>Payment</h1>
+
+
+    <div id="hx">
+        <label id="hnam">NAME</label>
+        <label id="hrn">ROOM</label>
+
+        <label id="hbt">TOTAL</label>
+        <br>
+    </div>
+    <div id="dx">
+        <form action="." method="post">
+            {% csrf_token %}
+            {% load humanize %}
+
+            <span class="nam">{{ tenant_bill.tenant_name }} </span>
+            <span class="rn">{{ tenant_bill.room_no }}</span>
+
+            <span class="bt">{{ tenant_bill.bill_total|floatformat:0|intcomma }}</span>
+
+            {{ pay_form.payment_amount }}
+            {{ pay_form.payment_date }}
+
+            <br>
+            <div class="submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+

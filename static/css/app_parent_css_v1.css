@@ -1,0 +1,127 @@
+
+body {
+    margin: 0;
+
+    padding: 0;
+    background: lightgray;
+
+    font-family: "Verdana", "helvetica", "Arial", "Courier New", sans-serif;
+}
+
+
+#content {
+    padding: 20px 100px;
+
+     line-height: 100%;
+
+}
+
+
+#header {
+    padding: 10px 35px;
+    font-size: 16px;
+    /*background: dodgerblue;*/
+     background: mediumseagreen;
+    color: #fff;
+    border-bottom: 5px solid yellowgreen;
+    overflow: auto;
+}
+
+#header .logo {
+    font-family: "Verdana", "Arial", "helvetica", "Courier New", sans-serif;
+    float: left;
+    color: blue;
+    font-size: 25px;
+    margin-top: 2px;
+    margin-right: 2%;
+}
+
+
+#header .user {
+    float: right;
+    padding-top: 0;
+    margin-top: 10px;
+    color: blue;
+}
+
+#header a {
+    color: #f3f7cc;
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: black;
+}
+
+
+#header ul.menu {
+    list-style: none;
+    float: left;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#header ul.menu li {
+    float: left;
+    padding: 0 10px;
+}
+
+#header ul.menu li.selected a {
+    color: blue;
+}
+
+#header ul.menu li.selected a:hover {
+    color: magenta;
+    /*font-style: italic;*/
+}
+
+
+/*===== added from app_body======*/
+
+
+p {
+    /*line-height: .7;*/
+}
+
+a {
+    color: #12c064;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00a74f;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+
+}
+
+h1 {
+    border-bottom: 1px solid cadetblue;
+    padding: 0 0 15px 0;
+    margin: 5px 0 15px 0;
+
+    color: blue;
+}
+
+h2 {
+    border-bottom: 1px solid cadetblue;
+    padding: 0 0 15px 0;
+    margin: 5px 0 15px 0;
+
+    font-weight: bold;
+    color: black;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+
+{% block title %}Misc Contents{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        div #topic ul {
+            list-style-type: disc;
+            color: red;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        #topic a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        #topic a:hover {
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <h1>Contents:</h1>
+
+    <div id="topic">
+
+        <ul>
+            <li><p><a href="{% url 'manage_users' %}">Manage Users</a></p></li>
+            {#            <li><p><a href="{% url 'confirmation' %}">Send Billing SMS to all tenants</a></p></li>#}
+            {#            <li><p><a href="{% url 'send_sms_to_individual_room' %}">Send Billing SMS to individual tenant</a></p></li>#}
+            {#                        <li><p><a href="{% url 'send_general_sms' %}">Send general SMS</a></p></li>#}
+            <li><p><a href="{% url 'maintenance_charge' %}">Monthly Maintenance Charge</a></p></li>
+        </ul>
+
+    </div>
+
+
+{% endblock %}

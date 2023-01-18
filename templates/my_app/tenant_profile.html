@@ -1,0 +1,72 @@
+
+
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Tenant Page{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block style %}
+
+    <style>
+        div #hx {
+            float: left;
+        }
+
+        div #da {
+            clear: both;
+        }
+
+        #sec1 {
+            line-height: 130%;
+            padding: 20px;
+            background: lightskyblue;
+            width: 500px;
+
+            border-radius: 10px 20px 20px 20px;
+        }
+
+        label {
+            display: block;
+            width: 14em;
+            font-size: medium;
+            font-weight: normal;
+            color: blue;
+            float: left;
+            text-align: right;
+            padding-right: .5em;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+
+{#    <h1>Your Profile [{{ cur_dt|date:'d-M-y' }}]</h1>#}
+
+     <h1>รายละเอียดของผู้เช่า [{{ cur_dt|date:'d-M-y' }}]</h1>
+    <section id="sec1">
+
+        <label>Full Name:</label>{{ tenant_pf.tenant }}<br>
+        <label>Mobile Phone:</label>{{ tenant_pf.phone }}<br>
+        <label>National ID:</label>{{ tenant_pf.pin }}<br>
+        <label>Room Number:</label>{{ tenant_pf.room_no }}<br>
+        <label>Contract Term:</label>{{ tenant_pf.term }}<br>
+        <label>Contract SD:</label>{{ tenant_pf.start_date }}<br>
+        <label>contract ED:</label>{{ tenant_pf.end_date }}<br>
+        <label>Room Cost:</label>{{ tenant_pf.room_no.room_type.rate|floatformat:0|intcomma }}<br>
+        <label>Accessory Cost:</label>{{ room_acc_cost|floatformat:0|intcomma }}<br>
+        <label>Other Service Cost:</label>{{ oth_ser_cost|floatformat:0|intcomma }}<br>
+        <label>Adjustment:</label>{{ tenant_pf.adjust|floatformat:0|intcomma }}<br>
+        <label>Deposit:</label>{{ tenant_pf.deposit|floatformat:0|intcomma }}<br>
+        <label>Overdue:</label>{{ tenant_pf.cum_ovd|floatformat:0|intcomma }}<br>
+
+    </section>
+
+{% endblock %}

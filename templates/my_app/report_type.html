@@ -1,0 +1,51 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+
+{% block title %}Report types{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        #topic ul {
+            list-style-type: disc;
+            color: red;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+
+        #topic ul a {
+            color: blue;
+            font-weight: bold;
+        }
+
+        #topic ul a:hover {
+            color: red;
+        {#font-weight: bold;#}
+        }
+
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <h1>Contents:</h1>
+
+    <div id="topic">
+        <ul>
+             <li><p><a href="{% url "report_parameters" %}">Monthly Reports</a></p></li>
+            <li><p><a href="{% url 'current_tenants' %}">Current Tenants</a></p></li>
+            <li><p><a href="{% url 'vacant_rooms' %}">Vacant Rooms</a></p></li>
+            <li><p><a href="{% url 'room_type_rate' %}">Room type and Rates</a></p></li>
+            <li><p><a href="{% url 'extra_rates' %}">Extra service Rates</a></p></li>
+        </ul>
+    </div>
+
+
+
+{% endblock %}

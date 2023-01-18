@@ -1,0 +1,115 @@
+{% extends "app_base_html.html" %}
+
+{% load static %}
+{#{% load widget_tweaks %}#}
+
+{% block title %}New maintenance charge{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+
+{% block style %}
+    <style>
+
+        #content {
+            font: 90% Arial, Helvetica, sans-serif;
+            width: 95%;
+            padding: 2em;
+            margin: 2px;
+        }
+
+        #lb1, #lb2 {
+            display: block;
+
+            padding: 2px;
+            color:white;
+            width: 6em;
+
+            line-height: 1.8em;
+
+            font-weight: normal;
+            text-align: right;
+            margin-right: .25em;
+            background-color: green;
+            float: left;
+
+        }
+
+        .ma_cost #id_room_no,
+        .ma_cost #id_job_cost {
+            width: 7em;
+
+            padding: 3px;
+
+            font-size: 110%;
+
+            text-align: center;
+
+            background-color: lightskyblue;
+            margin-top: 0;
+
+            float: left;
+        }
+
+        .ma_cost fieldset {
+            width: 18em;
+            height: 8em;
+        }
+
+        .ma_cost legend {
+            color: blue;
+            font-weight: bold;
+            font-size: 125%;
+            margin-bottom: .5em;
+        }
+
+
+        .submit button {
+            width: 5em;
+            font-size: large;
+            background-color: red;
+            border-color: red;
+            border-radius: 15px;
+            color: white;
+            margin-top: .5em;
+            padding: .3em;
+        }
+
+        .submit button:hover {
+            color: black;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <form action="." method="post">
+
+        {% csrf_token %}
+        <div class="ma_cost">
+            <fieldset>
+                <legend>MAINTENANCE CHARGE</legend>
+                <label for="id_room_no" id="lb1">ROOM NO:</label>
+                {{ maintenance_form.room_no }} <br><br>
+                <label for="id_job_cost" id="lb2">COST:</label>
+                {{ maintenance_form.job_cost }}
+            </fieldset>
+        </div>
+
+        <div class="submit">
+            <button type="submit">Submit</button>
+        </div>
+
+
+    </form>
+
+
+
+{% endblock %}
+
+
+
